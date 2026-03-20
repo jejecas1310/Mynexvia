@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYNEXVIA | Data & Digital Excellence</title>
+    
+    <!-- Importation de la typographie Poppins pour un rendu moderne et audacieux -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           RESET & VARIABLES GLOBALES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Couleurs Globales (Thème MYNEXVIA) */
+            --bg-global: #0f1115; /* Gris anthracite très sombre */
+            --bg-global-gradient: linear-gradient(135deg, #0a0b0e 0%, #1a1c23 100%);
+            --text-light: #ffffff;
+            --text-muted: #a0aabf;
+
+            /* Couleurs Carte 1 : JC.DATA.SOLUTIONS */
+            --data-bg: #ffffff;
+            --data-bg-hover: #f8f9fa;
+            --data-text: #0a192f; /* Bleu marine */
+            --data-accent: #10b981; /* Vert émeraude */
+
+            /* Couleurs Carte 2 : Atelier Digital */
+            --web-bg: #1c1f26; /* Noir/gris profond */
+            --web-bg-hover: #232730;
+            --web-text: #ffffff;
+            --web-accent: #ff7f50; /* Rouge saumon */
+
+            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-global-gradient);
+            background-attachment: fixed;
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            text-align: center;
+            padding: 15vh 2rem 5vh;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #a0aabf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           EXPERTISES (CARDS SECTION)
+           ========================================= */
+        .expertises-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            z-index: 10;
+        }
+
+        .card {
+            flex: 1;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none; /* Ajouté pour éviter le soulignement du texte si la carte est un lien */
+            transition: var(--transition-smooth);
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        /* Délai d'animation pour les cartes */
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            flex-grow: 1;
+            opacity: 0.9;
+        }
+
+        .card-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        /* --- Style Spécifique : Carte 1 (DATA) --- */
+        .card-data {
+            background-color: var(--data-bg);
+            color: var(--data-text);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-data .card-icon svg {
+            fill: none;
+            stroke: var(--data-accent);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .card-data .card-btn {
+            background-color: transparent;
+            color: var(--data-accent);
+            border-color: var(--data-accent);
+        }
+
+        .card-data:hover {
+            transform: translateY(-15px);
+            background-color: var(--data-bg-hover);
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15); /* Ombre vert émeraude subtile */
+        }
+
+        .card-data:hover .card-btn {
+            background-color: var(--data-accent);
+            color: #ffffff;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .card-data:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        /* --- Style Spécifique : Carte 2 (WEB) --- */
+        .card-web {
+            background-color: var(--web-bg);
+            color: var(--web-text);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-web .card-icon svg {
+            fill: none;
+            stroke: var(--web-accent);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .card-web .card-btn {
+            background-color: transparent;
+            color: var(--web-accent);
+            border-color: var(--web-accent);
+        }
+
+        .card-web:hover {
+            transform: translateY(-15px);
+            background-color: var(--web-bg-hover);
+            box-shadow: 0 25px 50px rgba(255, 127, 80, 0.15); /* Ombre rouge saumon subtile */
+            border-color: rgba(255, 127, 80, 0.2);
+        }
+
+        .card-web:hover .card-btn {
+            background-color: var(--web-accent);
+            color: #ffffff;
+            box-shadow: 0 10px 20px rgba(255, 127, 80, 0.3);
+        }
+
+        .card-web:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        footer a:hover {
+            color: var(--text-light);
+        }
+
+        /* =========================================
+           ANIMATIONS
+           ========================================= */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN (Mobile & Tablette)
+           ========================================= */
+        @media (max-width: 860px) {
+            .expertises-container {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem 2rem;
+            }
+            .card {
+                padding: 3rem 2rem;
+            }
+            .hero {
+                padding-top: 10vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1 class="hero-title">MYNEXVIA</h1>
+        
+        <!-- Slogan par défaut affiché -->
+        <p class="hero-subtitle">L'alliance de l'intelligence des données et de l'excellence digitale.</p>
+        
+        <!-- Autres propositions de copywriting (en commentaire) :
+        <p class="hero-subtitle">Propulsez votre vision : de l'automatisation sur-mesure à la création web premium.</p>
+        <p class="hero-subtitle">L'art de structurer vos données et de sublimer votre présence en ligne.</p>
+        -->
+    </header>
+
+    <!-- MAIN SECTION : EXPERTISES -->
+    <main class="expertises-container">
+        
+        <!-- CARTE 1 : DATA -->
+        <!-- Remplacement de <article> par <a> pour rendre toute la carte cliquable -->
+        <a href="https://portfolio-jc-data.vercel.app/" target="_blank" rel="noopener noreferrer" class="card card-data">
+            <div class="card-icon">
+                <!-- Icône SVG élégante (Data/Nodes/Automation) -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="14" width="6" height="7" rx="1.5"></rect>
+                    <rect x="15" y="10" width="6" height="11" rx="1.5"></rect>
+                    <path d="M6 14v-4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4"></path>
+                    <circle cx="12" cy="5" r="2"></circle>
+                </svg>
+            </div>
+            <h2 class="card-title">JC.DATA.SOLUTIONS</h2>
+            <p class="card-desc">
+                Transformez vos processus grâce à l'automatisation avancée et l'intelligence artificielle. Gain de temps, structuration et performance absolue.
+            </p>
+            <!-- Remplacement de <a> par <span> car le lien principal englobe déjà la carte -->
+            <span class="card-btn">Découvrir l'expertise Data</span>
+        </a>
+
+        <!-- CARTE 2 : WEB -->
+        <!-- Remplacement de <article> par <a> pour rendre toute la carte cliquable -->
+        <a href="https://atelier-digital-mocha.vercel.app/" target="_blank" rel="noopener noreferrer" class="card card-web">
+            <div class="card-icon">
+                <!-- Icône SVG élégante (Web/Browser/Design) -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="M2 8h20"></path>
+                    <circle cx="6" cy="6" r="1" fill="currentColor" stroke="none"></circle>
+                    <circle cx="9" cy="6" r="1" fill="currentColor" stroke="none"></circle>
+                    <circle cx="12" cy="6" r="1" fill="currentColor" stroke="none"></circle>
+                    <path d="M8 14l3-3-3-3"></path>
+                    <path d="M12 14h4"></path>
+                </svg>
+            </div>
+            <h2 class="card-title">Atelier Digital</h2>
+            <p class="card-desc">
+                Donnez vie à votre marque avec des interfaces web immersives, taillées pour la conversion et un design résolument premium.
+            </p>
+            <!-- Remplacement de <a> par <span> car le lien principal englobe déjà la carte -->
+            <span class="card-btn">Découvrir l'expertise Web</span>
+        </a>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 MYNEXVIA. Tous droits réservés.
+        <a href="#contact">Contactez-nous</a>
+    </footer>
+
+</body>
+</html>
