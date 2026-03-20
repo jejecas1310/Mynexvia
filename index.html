@@ -110,7 +110,7 @@
             text-align: center;
             position: relative;
             cursor: pointer;
-            text-decoration: none; /* Ajouté pour éviter le soulignement du texte si la carte est un lien */
+            text-decoration: none; /* Évite le soulignement du texte */
             transition: var(--transition-smooth);
             animation: fadeInUp 1s ease-out both;
         }
@@ -318,21 +318,14 @@
         
         <!-- Slogan par défaut affiché -->
         <p class="hero-subtitle">L'alliance de l'intelligence des données et de l'excellence digitale.</p>
-        
-        <!-- Autres propositions de copywriting (en commentaire) :
-        <p class="hero-subtitle">Propulsez votre vision : de l'automatisation sur-mesure à la création web premium.</p>
-        <p class="hero-subtitle">L'art de structurer vos données et de sublimer votre présence en ligne.</p>
-        -->
     </header>
 
     <!-- MAIN SECTION : EXPERTISES -->
     <main class="expertises-container">
         
         <!-- CARTE 1 : DATA -->
-        <!-- Remplacement de <article> par <a> pour rendre toute la carte cliquable -->
         <a href="https://portfolio-jc-data.vercel.app/" target="_blank" rel="noopener noreferrer" class="card card-data">
             <div class="card-icon">
-                <!-- Icône SVG élégante (Data/Nodes/Automation) -->
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="14" width="6" height="7" rx="1.5"></rect>
                     <rect x="15" y="10" width="6" height="11" rx="1.5"></rect>
@@ -344,15 +337,12 @@
             <p class="card-desc">
                 Transformez vos processus grâce à l'automatisation avancée et l'intelligence artificielle. Gain de temps, structuration et performance absolue.
             </p>
-            <!-- Remplacement de <a> par <span> car le lien principal englobe déjà la carte -->
             <span class="card-btn">Découvrir l'expertise Data</span>
         </a>
 
         <!-- CARTE 2 : WEB -->
-        <!-- Remplacement de <article> par <a> pour rendre toute la carte cliquable -->
         <a href="https://atelier-digital-mocha.vercel.app/" target="_blank" rel="noopener noreferrer" class="card card-web">
             <div class="card-icon">
-                <!-- Icône SVG élégante (Web/Browser/Design) -->
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                     <path d="M2 8h20"></path>
@@ -367,7 +357,6 @@
             <p class="card-desc">
                 Donnez vie à votre marque avec des interfaces web immersives, taillées pour la conversion et un design résolument premium.
             </p>
-            <!-- Remplacement de <a> par <span> car le lien principal englobe déjà la carte -->
             <span class="card-btn">Découvrir l'expertise Web</span>
         </a>
 
@@ -379,9 +368,9 @@
         <div class="footer-legal">
             <a href="mailto:contact@mynexvia.fr">Contactez-nous</a>
             <span>&bull;</span>
-            <a href="#mentions-legales">Mentions Légales</a>
+            <a href="legal.html#mentions-legales">Mentions Légales</a>
             <span>&bull;</span>
-            <a href="#confidentialite">Politique de Confidentialité</a>
+            <a href="legal.html#confidentialite">Politique de Confidentialité</a>
         </div>
         <div class="footer-disclaimer">
             Ces mentions légales et cette politique de confidentialité s'appliquent à MYNEXVIA ainsi qu'à l'ensemble de ses services : <strong>JC.DATA.SOLUTIONS</strong> et <strong>Atelier Digital</strong>.
