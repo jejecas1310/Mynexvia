@@ -176,7 +176,8 @@
         .card-data:hover {
             transform: translateY(-15px);
             background-color: var(--data-bg-hover);
-            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15); /* Ombre vert émeraude subtile */
+            /* Halo vert émeraude accentué avec une double ombre pour un effet lumineux */
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2), 0 0 40px rgba(16, 185, 129, 0.4); 
         }
 
         .card-data:hover .card-btn {
