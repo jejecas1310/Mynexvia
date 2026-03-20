@@ -239,15 +239,39 @@
             animation: fadeIn 2s ease-out;
         }
 
+        .footer-legal {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .footer-legal span {
+            opacity: 0.3;
+        }
+
         footer a {
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.3s ease;
-            margin-left: 10px;
         }
 
         footer a:hover {
             color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        .footer-disclaimer {
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
         }
 
         /* =========================================
@@ -351,8 +375,17 @@
 
     <!-- FOOTER -->
     <footer>
-        &copy; 2026 MYNEXVIA. Tous droits réservés.
-        <a href="mailto:contact@mynexvia.fr">Contactez-nous</a>
+        <div>&copy; 2026 MYNEXVIA. Tous droits réservés.</div>
+        <div class="footer-legal">
+            <a href="mailto:contact@mynexvia.fr">Contactez-nous</a>
+            <span>&bull;</span>
+            <a href="#mentions-legales">Mentions Légales</a>
+            <span>&bull;</span>
+            <a href="#confidentialite">Politique de Confidentialité</a>
+        </div>
+        <div class="footer-disclaimer">
+            Ces mentions légales et cette politique de confidentialité s'appliquent à MYNEXVIA ainsi qu'à l'ensemble de ses services : <strong>JC.DATA.SOLUTIONS</strong> et <strong>Atelier Digital</strong>.
+        </div>
     </footer>
 
 </body>
